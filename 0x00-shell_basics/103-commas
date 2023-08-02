@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -pd .[!.]* [0-9A-Za-z]* | tr '\n' ','; echo
