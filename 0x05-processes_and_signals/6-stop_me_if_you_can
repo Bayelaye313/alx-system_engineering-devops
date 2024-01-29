@@ -3,4 +3,4 @@
 # You cannot use kill or killall
 #we can pkil -f 4-to_infinity_and_beyond
 
-pkill -P "$(pgrep -f 4-to_infinity_and_beyond)"
+pkill -f 4-to_infinity_and_beyond
