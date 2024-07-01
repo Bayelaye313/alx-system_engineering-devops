@@ -1,9 +1,4 @@
 #!/bin/bash
 
-# Variables
-private_key=~/.ssh/school
-username=ubuntu
-server_address=100.27.10.105
-
-# SSH command
-ssh -i "$private_key" "$username@$server_address"
+# Connects to server using private key
+ssh -i ~/.ssh/school ubuntu@100.27.10.105
