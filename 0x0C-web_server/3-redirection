@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Create redirect
+#!/usr/bin/env bash
+
+# Update package lists and install nginx
+apt-get update -y
+apt-get install nginx -y
+
+# Configure nginx redirection
+echo '
+server {
+    listen 80;
+    listen [::]:80;
+    
+    root /var/www/html;
+    index index.html index.htm;
+    
+    server_name _;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+' | sudo tee /etc/nginx/sites-available/default > /dev/null
+
+# Restart nginx to apply changes
+service nginx restart
+
+# Verification message (optional)
+echo "Nginx has been configured to redirect /redirect_me to https://www.youtube.com/watch?v=QH2-TGUlwu4 with a 301 Moved Permanently."
+
+# End of script
