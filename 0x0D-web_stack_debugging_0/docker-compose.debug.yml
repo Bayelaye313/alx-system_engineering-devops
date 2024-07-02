@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  0x0dwebstackdebugging0:
+    image: 0x0dwebstackdebugging0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
