@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-#Install nginx web server
-apt-get -y update
-apt-get -y install nginx
-echo "Hello world!" > /var/www/html/index.html
+# Update package lists and install nginx
+apt-get update -y
+apt-get install nginx -y
+
+# Create a default HTML file with "Hello World!"
+echo "Hello World!" > /var/www/html/index.html
 
 # Start nginx (without using systemctl)
 /usr/sbin/nginx
-service nginx start
+
+# Verification message (optional)
+echo "Nginx has been installed and configured. Now listening on port 80."
+
+# End of script
