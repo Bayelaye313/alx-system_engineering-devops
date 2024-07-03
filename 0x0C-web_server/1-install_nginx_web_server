@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
-# Update package lists and install nginx
-apt-get update -y
-apt-get install nginx -y
+# Install nginx on web server; Nginx should be listening on port 80
 
-# Create a default HTML file with "Hello World!"
-echo "Hello World!" > /var/www/html/index.html
-
-# Start nginx (without using systemctl)
-/usr/sbin/nginx
-
-# Verification message (optional)
-echo "Nginx has been installed and configured. Now listening on port 80."
-
-# End of script
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow "Nginx HTTP"
+sudo chown -R $USER:$USER /var/www/html/index.nginx-debian.html
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo service nginx restart
